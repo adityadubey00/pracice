@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white">
+        <div class="form p-10">
+            <form action="/create" method="POST">
+                <input class="block text-black  w-full rounded-xl px-5 py-2  mb-2" type="text" name="title" placeholder="TITLE" required>
+                <textarea class="block text-black  w-full rounded-3xl px-5 py-2 mb-2 resize-none" name="description" placeholder="DESCRIPTION" required></textarea>
+                <input class="block text-black  w-full bg-blue-600 px-5 py-2 rounded-md" type="submit" value="Create Task">
+            </form>
+        </div>
+        <div class="tasks flex gap-3 p-10 flex-wrap">
+            <% if (files.length > 0) { %>
+                <% files.forEach(function(file) { %>
+                    <div class="task w-72 px-3 py-5 bg-zinc-800">
+                        <h1 class="text-black text-3xl tracking-tight">
+                            <%= file %>
+                        </h1>
+                        <a href="#" class="text-blue-500 mt-3 block">READ MORE</a>
+                    </div>
+                    <% }); %>
+                        <% } else { %>
+                            <h3 class="text bg-zinc-600 p-3 rounded-md">No tasks yet</h3>
+                            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>
